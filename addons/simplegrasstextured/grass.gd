@@ -24,6 +24,7 @@
 @tool
 extends MultiMeshInstance3D
 
+@export var custom_material : bool = true
 @export var mesh : Mesh = null : set = _on_set_mesh
 @export_color_no_alpha var albedo := Color.WHITE : set = _on_set_albedo
 @export var texture_albedo : Texture = load("res://addons/simplegrasstextured/textures/grassbushcc008.png") : set = _on_set_texture_albedo
@@ -64,6 +65,7 @@ var sgt_density := 25
 var sgt_scale := 1.0
 var sgt_rotation := 0.0
 var sgt_rotation_rand := 1.0
+var sgt_transform_rand := 1.0
 var sgt_dist_min := 0.25
 var sgt_follow_normal := false
 
@@ -141,8 +143,9 @@ func _ready():
 			multimesh.mesh = _default_mesh
 	if light_mode == 2:
 		_material = load("res://addons/simplegrasstextured/materials/grass_unshaded.material").duplicate() as ShaderMaterial
-	for isur in range(multimesh.mesh.get_surface_count()):
-		multimesh.mesh.surface_set_material(isur, _material)
+	if !custom_material:
+		for isur in range(multimesh.mesh.get_surface_count()):
+			multimesh.mesh.surface_set_material(isur, _material)
 	update_all_material()
 
 
@@ -252,7 +255,7 @@ func erase(pos : Vector3, radius : float):
 	for i in range(array.size()):
 		multi_new.set_instance_transform(i, array[i])
 	multimesh = multi_new
-	if _material != null:
+	if _material != null and !custom_material:
 		for isur in range(multimesh.mesh.get_surface_count()):
 			multimesh.mesh.surface_set_material(isur, _material)
 	if Engine.is_editor_hint():
@@ -280,7 +283,7 @@ func auto_center_position(editor_interface):
 		trans.origin += align
 		multi_new.set_instance_transform(i, trans)
 	multimesh = multi_new
-	if _material != null:
+	if _material != null and !custom_material:
 		for isur in range(multimesh.mesh.get_surface_count()):
 			multimesh.mesh.surface_set_material(isur, _material)
 	if Engine.is_editor_hint():
@@ -352,7 +355,7 @@ func _update_multimesh():
 	for i in range(_buffer_add.size()):
 		multi_new.set_instance_transform(i + count_prev, _buffer_add[i])
 	multimesh = multi_new
-	if _material != null:
+	if _material != null and !custom_material:
 		for isur in range(multimesh.mesh.get_surface_count()):
 			multimesh.mesh.surface_set_material(isur, _material)
 	_buffer_add.clear()
