@@ -36,9 +36,6 @@ Add a SimpleGrassTextured node to your terrain scene
 Select the SimpleGrassTextured node on your scene and draw on the terrain
 
 ### How to enable interactive mode
-- <picture>
-  <img alt="" src="https://github.com/IcterusGames/SimpleGrassTexturedPreview/raw/main/previews/sgt2_interactive.gif">
-</picture>
 
 
 1. In the _ready function of your game scene you must enable the interactive mode by calling the function SimpleGrass.set_interactive(true)
@@ -60,8 +57,6 @@ Select the SimpleGrassTextured node on your scene and draw on the terrain
 * Using the inspector load your custom mesh on the mesh propierty
 * On the Texture Albedo load your custom texture for the mesh
   > Optionally in the "Material parameters" section adjust the appearance of the material
-
-  - ![Preview custom mesh](https://github.com/IcterusGames/SimpleGrassTexturedPreview/raw/main/previews/sgt2_custom_mesh.png)
 
 ## Optimization
 
