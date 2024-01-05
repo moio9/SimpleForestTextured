@@ -1,5 +1,5 @@
-# SimpleGrassTextured
-This plugin for Godot 4 allows you to add grass and plants to your scene in a simple way
+# SimpleForestTextured
+Fork of SimpleGrassTextured
 
 
 ![Preview Image](https://github.com/IcterusGames/SimpleGrassTexturedPreview/raw/main/previews/preview_03.jpg)
