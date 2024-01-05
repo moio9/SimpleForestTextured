@@ -42,7 +42,6 @@ Select the SimpleGrassTextured node on your scene and draw on the terrain
    - ![Preview set interactive code](https://github.com/IcterusGames/SimpleGrassTexturedPreview/raw/main/previews/sgt2_set_interactive.png)
 2. Next you must enable the character to be detected by the SimpleGrassTexture collision system, for this it is recommended to add a MeshInstance3D to the character (for example a sphere) at the height of the ground
    > you can adjust the size of the sphere so that the collision be detected more accurately
-   - ![Preview character collision mesh](https://github.com/IcterusGames/SimpleGrassTexturedPreview/raw/main/previews/sgt2_character_collision_mesh.png)
 3. In the render layers of the MeshInstance 3D, only layer 17 should be enabled
    - ![Preview character collision visual layers](https://github.com/IcterusGames/SimpleGrassTexturedPreview/raw/main/previews/sgt2_character_collision_layers.png)
    > Note: this same procedure can be done for each character or object that must interact with SimpleGrassTextured
